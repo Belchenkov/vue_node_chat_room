@@ -10,8 +10,16 @@ const io = socketIO(server);
 const publicPath = path.join(__dirname, '../public');
 app.use(express.static(publicPath));
 
-io.on('connection', () => {
+io.on('connection', socket => {
     console.log('IO Connection');
+
+    socket.on('createMessage', data => {
+        console.log('Server', data);
+        socket.emit('newMessage', {
+            text: data.value,
+            date: new Date()
+        });
+    });
 });
 
 const PORT = process.env.PORT || 3000;
