@@ -1,0 +1,25 @@
+{
+  "name": "node-chat",
+  "version": "1.0.0",
+  "description": "nodejs chat",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belchenkov/vue_node_chat_room.git"
+  },
+  "keywords": [
+    "nodejs",
+    "socket.io",
+    "vue.js",
+    "chat"
+  ],
+  "author": "Aleksey Belchenkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Belchenkov/vue_node_chat_room/issues"
+  },
+  "homepage": "https://github.com/Belchenkov/vue_node_chat_room#readme"
+}
