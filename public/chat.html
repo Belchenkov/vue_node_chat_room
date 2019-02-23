@@ -22,9 +22,11 @@
             </div>
             <div class="chat-messages">
                 <chat-message
-                        v-for="m in messages"
+                        v-for="(m, idx) in messages"
                         :class="{'owner': m === 3}"
                         :message="m"
+                        :user="user"
+                        :key="idx"
                 ></chat-message>
             </div>
         </div>
