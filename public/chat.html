@@ -7,18 +7,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <link rel="stylesheet" href="./css/styles.css">
     <title>NodeJS Chat</title>
 </head>
 <body>
-    <h1>Chat Html</h1>
+    <div id="app">
+        <div class="chat">
+            <div class="chat-users collection">
+                <a
+                    class="collection-item  indigo lighten-2 white-text"
+                    v-for="user in 3"
+                    :class="{'active': user === 1}"
+                >User {{user}}</a>
+            </div>
+            <div class="chat-messages">
+                <div class="message" v-for="m in 10" :class="{'owner': m === 3}">
+                    <div class="message-content z-depth-1">
+                        Message: {{m}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="input-field">
+                <input type="text" placeholder="Type your message ...">
+            </div>
+            <button class="btn indigo lighten-2 z-depth-2">Send</button>
+        </div>
+    </div>
 
-<!-- Compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 <script src="/socket.io/socket.io.js"></script>
-<script>
-
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
