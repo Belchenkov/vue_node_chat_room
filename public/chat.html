@@ -21,18 +21,29 @@
                 >User {{user}}</a>
             </div>
             <div class="chat-messages">
-                <div class="message" v-for="m in 10" :class="{'owner': m === 3}">
-                    <div class="message-content z-depth-1">
-                        Message: {{m}}
-                    </div>
-                </div>
+                <chat-message
+                        v-for="m in messages"
+                        :class="{'owner': m === 3}"
+                        :message="m"
+                ></chat-message>
             </div>
         </div>
         <div class="actions">
             <div class="input-field">
-                <input type="text" placeholder="Type your message ...">
+                <input
+                        type="text"
+                        placeholder="Type your message ..."
+                        v-model.trim="message"
+                        autofocus
+                        autocomplete="false"
+                        @keydown.enter="sendMessage"
+                >
             </div>
-            <button class="btn indigo lighten-2 z-depth-2">Send</button>
+            <button
+                    class="btn indigo lighten-2 z-depth-2"
+                    @click="sendMessage"
+                    :disabled="message.length === 0"
+            >Send</button>
         </div>
     </div>
 

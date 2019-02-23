@@ -7,18 +7,19 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
+const message = (name, text) => ({name, text});
+
 const publicPath = path.join(__dirname, '../public');
 app.use(express.static(publicPath));
 
 io.on('connection', socket => {
-    console.log('IO Connection');
-
-    socket.on('createMessage', data => {
-        console.log('Server', data);
-        socket.emit('newMessage', {
-            text: data.value,
-            date: new Date()
-        });
+    socket.on('message:create', (data, callback) => {
+        if (!data) {
+            callback(`Message can't be empty`);
+        } else {
+            callback();
+            io.emit('message:new', message('admin', data.text));
+        }
     });
 });
 
