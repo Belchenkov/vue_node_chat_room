@@ -7,7 +7,8 @@ Vue.component('chat-message', {
    ],
    template: `
         <div class="message" :class="{'owner': message.id === user.id}">
-         <div class="message-content z-depth-1">
+         <div class="message-content z-depth-1 d-flex">
+            <img src="https://img.icons8.com/bubbles/45/000000/check-male.png">
             <b>
                 <template v-if="message.id === user.id">You</template>
                 <template v-else>{{message.name}}</template>
@@ -50,8 +51,11 @@ new Vue({
 
             socket.on('message:new', message => {
                 this.messages.push(message);
-                this.message = '';
+
+                scrollToBottom(this.$refs.messages);
             });
+
+            scrollToBottom(this.$refs.messages);
         }
     },
     created() {
@@ -72,3 +76,9 @@ new Vue({
         });
     }
 });
+
+function scrollToBottom(node) {
+    setTimeout(() => {
+        node.scrollTop = node.scrollHeight;
+    });
+}

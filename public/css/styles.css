@@ -13,6 +13,10 @@ html, body {
     flex-direction: row!important;
 }
 
+.mr-10 {
+    margin-right: 10px;
+}
+
 .auth {
     display: flex;
     padding-top: 5px;
