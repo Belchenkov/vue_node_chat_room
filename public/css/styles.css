@@ -1,7 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo:400,700');
+
 html, body {
     margin: 0;
     padding: 0;
-    font-family: "Roboto";
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px!important;
+}
+
+.d-flex {
+    display: flex!important;
+    align-items: center!important;
+    flex-direction: row!important;
+}
+
+.mr-10 {
+    margin-right: 10px;
 }
 
 .auth {
@@ -11,6 +24,62 @@ html, body {
     text-align: center;
 }
 
+input[type='submit'] {
+    font-family: 'Gloria Hallelujah', cursive!important;
+}
+
 .auth .card {
     width: 400px;
 }
+
+.card-title {
+    font-size: 35px!important;
+}
+
+.chat {
+    display: flex;
+    height: 70vh;
+    width: 100%;
+}
+
+.chat-users {
+    width: 300px;
+    border: 1px solid #e0e0e0;
+    margin: 0;
+}
+
+.actions {
+    border: 1px solid #e0e0e0;
+    height: 30vh;
+    padding: 20px;
+}
+
+.chat-messages {
+    border: 1px solid #e0e0e0;
+    width: 100%;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message {
+    display: flex;
+}
+
+.message-content {
+    border-radius: 3px;
+    padding: 6px 9px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    max-width: 450px;
+}
+
+.message.owner {
+    justify-content: flex-end;
+}
+
+.message.owner .message-content {
+    color: #fff;
+    background-color: #7986cb ;
+}
+
+
