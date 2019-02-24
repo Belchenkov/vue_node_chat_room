@@ -7,6 +7,12 @@ html, body {
     font-size: 16px!important;
 }
 
+.d-flex {
+    display: flex!important;
+    align-items: center!important;
+    flex-direction: row!important;
+}
+
 .auth {
     display: flex;
     padding-top: 5px;

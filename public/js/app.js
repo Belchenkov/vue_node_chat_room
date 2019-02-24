@@ -22,6 +22,7 @@ new Vue({
     data: {
         message: '',
         messages: [],
+        users: [],
         user: {
             name: '',
             room: ''
@@ -43,6 +44,10 @@ new Vue({
             });
         },
         initializeConnection() {
+            socket.on('users:update', users => {
+                this.users = [...users];
+            });
+
             socket.on('message:new', message => {
                 this.messages.push(message);
                 this.message = '';

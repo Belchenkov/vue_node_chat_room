@@ -15,10 +15,15 @@
         <div class="chat">
             <div class="chat-users collection">
                 <a
-                    class="collection-item  indigo lighten-2 white-text"
-                    v-for="user in 3"
-                    :class="{'active': user === 1}"
-                >User {{user}}</a>
+                    class="collection-item d-flex indigo lighten-2 white-text"
+                    v-for="u in users"
+                    :class="{'active': u.id === user.id}"
+                >
+                    <div>
+                        <img src="https://img.icons8.com/bubbles/45/000000/check-male.png">
+                    </div>
+                    <div>{{u.name}}</div>
+                </a>
             </div>
             <div class="chat-messages">
                 <chat-message
